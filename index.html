@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alokrekha - আলোকরেখা | Premium Jewelry Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <div class="logo">
+                    <!-- LOGO PLACEHOLDER - Replace with your actual logo image -->
+                    <!-- HOW TO ADD LOGO:
+                        Option 1: Replace the SVG below with an <img> tag:
+                        <img src="images/logo.png" alt="Alokrekha Logo" width="32" height="32">
+                        
+                        Option 2: Keep the SVG and style it, or upload to /images/logo.svg
+                        
+                        UPLOAD LOCATION: Create a folder 'images' in the same directory as index.html
+                        RECOMMENDED SIZE: 32x32 pixels for navbar logo
+                    -->
+                        <img src="Alok_logo.jpg" alt="Alokrekha Logo" width="32" height="32">
+                  
+                        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+                        <path d="M16 8V24M8 16H24" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <div class="brand-text">
+                        <div class="brand-name">ALOKREKHA</div>
+                        <div class="brand-subtitle">আলোকরেখা</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navbar-menu" id="navMenu">
+                <a href="#" class="nav-link" onclick="showHome(event)">Home</a>
+                <a href="#" class="nav-link" onclick="showShop(event)">Shop</a>
+                <a href="#" class="nav-link" onclick="showAbout(event)">About</a>
+                <a href="#" class="nav-link" onclick="showAdmin(event)">Admin</a>
+            </div>
+            
+            <div class="navbar-right">
+                <button class="search-btn" onclick="toggleSearch()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <a href="#" class="auth-link" onclick="toggleAuthModal(event)">Sign In</a>
+                <button class="cart-btn" onclick="showCart()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search products..." id="searchInput" onkeyup="filterProducts()">
+        </div>
+    </nav>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeAuthModal()">&times;</button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('login')">Sign In</button>
+                <button class="auth-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+                <p class="form-note">Demo: Use any email/password to test</p>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+                <p class="form-note">Frontend only - Data not persisted</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Home Section -->
+    <section id="homeSection" class="page-section active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Timeless Elegance</h1>
+                <p>Discover our exquisite collection of handcrafted jewelry</p>
+                <button class="btn btn-primary btn-lg" onclick="showShop()">Explore Collection</button>
+            </div>
+            <div class="hero-image">
+                 <img src="home_image.jpg" alt="Jewelry Collection" style="width: 100%; height: 400px; object-fit: cover; border-radius: 8px;">
+                <!-- HERO IMAGE PLACEHOLDER
+                     HOW TO ADD HERO IMAGE:
+                     1. Create an 'images' folder in the same directory as index.html
+                     2. Add your jewelry showcase image (recommended: 600x400px, high quality)
+                     3. Uncomment and replace the line below:
+                     <img src="images/hero-jewelry.jpg" alt="Jewelry Collection" style="width: 100%; height: 400px; object-fit: cover; border-radius: 8px;">
+                     
+                     RECOMMENDED IMAGE SOURCES:
+                     - Your own jewelry photos
+                     - Unsplash: Search "jewelry" or "luxury jewelry"
+                     - Pexels: Search for jewelry images
+                     - Pixabay: High-quality free images
+                -->
+               
+            </div>
+        </div>
+
+        <!-- Featured Categories -->
+        <section class="featured-section">
+            <h2>Collections</h2>
+            <div class="categories-grid">
+                <!-- CATEGORY CARDS WITH IMAGE PLACEHOLDERS
+                     Each category card needs an image. Upload images to images/category-name.jpg
+                -->
+
+                
+                <div class="category-card" onclick="filterByCategory('Oxidize')">
+                    <!-- HOW TO ADD CATEGORY IMAGE:
+                         1. Replace placeholder with: 
+                         <img src="images/category-oxidize.jpg" alt="Oxidize Collection" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px;">
+                         
+                         RECOMMENDED SIZE: 400x300px
+                         FILE FORMAT: JPG or PNG
+                    -->
+
+
+
+
+
+                         <img src="0xidize_cover.jpg" alt="Oxidize Collection" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px;">
+                  
+                    <h3>Oxidize</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Stone Rings')">
+                    <img src="stonering.jpg" alt="Stone Rings" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px;">
+                   
+                    <h3>Stone Rings</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Golden Polish')">
+                     <img src="goldpolish.jpg" alt="Golden Polish"style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px;">
+                   
+                    <h3>Golden Polish</h3>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shopSection" class="page-section">
+        <div class="shop-container">
+            <div class="shop-sidebar">
+                <h3>Filter</h3>
+                <div class="filter-group">
+                    <label class="filter-label">Category</label>
+                    <select id="categoryFilter" onchange="applyFilters()">
+                        <option value="">All Categories</option>
+                        <option value="Oxidize Earrings">Oxidize Earrings</option>
+                        <option value="Oxidize Rings">Oxidize Rings</option>
+                        <option value="Oxidize Choker">Oxidize Choker</option>
+                        <option value="Oxidize Noth Nose Pin">Oxidize Noth Nose Pin</option>
+                        <option value="Stone Rings">Stone Rings</option>
+                        <option value="Anklet">Anklet</option>
+                        <option value="Toe Rings">Toe Rings</option>
+                        <option value="Golden Polish">Golden Polish</option>
+                        <option value="Multani Earrings">Multani Earrings</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Price Range</label>
+                    <input type="range" min="0" max="50000" value="50000" id="priceFilter" onchange="applyFilters()">
+                    <div class="price-display">
+                        <span>₹0</span>
+                        <span id="maxPrice">₹50,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shop-main">
+                <div class="shop-header">
+                    <h2>Our Products</h2>
+                    <select id="sortFilter" onchange="applyFilters()">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+
+                <!-- PRODUCTS GRID - See app.js for image handling -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here by JavaScript (app.js) -->
+                    <!-- Each product card will have an image placeholder that gets replaced when images are uploaded -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="aboutSection" class="page-section">
+        <div class="about-container">
+            <h2>About Alokrekha</h2>
+            <p>Welcome to Alokrekha (আলোকরেখা) - where tradition meets contemporary style. We craft exquisite jewelry pieces that celebrate individuality and elegance. Each piece is designed with precision and passion.</p>
+            
+            <h3>Why Choose Us?</h3>
+            <ul class="features-list">
+                <li>Handcrafted with Premium Materials</li>
+                <li>Unique Designs & Collections</li>
+                <li>Affordable Luxury</li>
+                <li>Fast & Secure Shipping</li>
+                <li>Lifetime Support & Customization</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Admin Section -->
+    <section id="adminSection" class="page-section">
+        <div class="admin-container">
+            <h2>Admin Panel</h2>
+            
+            <div id="adminLogin" class="admin-login">
+                <h3 id="adminFormTitle">Admin Login</h3>
+
+                <!-- Admin Login Form -->
+                <form id="adminLoginForm" onsubmit="loginAdmin(event)">
+                    <input type="email" placeholder="Admin Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <div style="margin-top:0.75rem; display:flex; gap:0.5rem; align-items:center;">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-secondary" onclick="showAdminCreateForm()">Create Account</button>
+                    </div>
+                    <p class="form-note">Admin account required for access</p>
+                </form>
+
+                <!-- Admin Create Form (hidden when admin exists) -->
+                <form id="adminCreateForm" onsubmit="createAdmin(event)" style="display:none; margin-top:1rem;">
+                    <input type="text" id="adminName" placeholder="Full Name" required>
+                    <input type="email" id="adminEmail" placeholder="Email" required>
+                    <input type="password" id="adminPassword" placeholder="Password (min 8 chars)" required>
+                    <input type="password" id="adminPasswordConfirm" placeholder="Confirm Password" required>
+                    <div style="margin-top:0.75rem; display:flex; gap:0.5rem; align-items:center;">
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                        <button type="button" class="btn btn-secondary" onclick="showAdminLoginForm()">Back to Login</button>
+                    </div>
+                    <p class="form-note">Account will be stored locally (demo).</p>
+                </form>
+            </div>
+
+                <div id="adminPanel" class="admin-panel" style="display: none;">
+                <div id="adminInfo" style="font-size:0.95rem; color:var(--text-secondary); margin:0.5rem 0;"></div>
+                <div class="admin-tabs">
+                    <button class="admin-tab active" onclick="switchAdminTab('dashboard')">Dashboard</button>
+                    <button class="admin-tab" onclick="switchAdminTab('products')">Products</button>
+                    <button class="admin-tab" onclick="switchAdminTab('categories')">Categories</button>
+                </div>
+
+                <!-- Dashboard Tab -->
+                <div id="dashboardTab" class="admin-tab-content active">
+                    <h3>Dashboard</h3>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <h4>Total Products</h4>
+                            <p id="totalProducts">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Total Categories</h4>
+                            <p id="totalCategories">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Tab -->
+                <div id="productsTab" class="admin-tab-content">
+                    <h3>Manage Products</h3>
+                    <button class="btn btn-primary" onclick="openProductForm()">+ Add New Product</button>
+                    
+                    <!-- PRODUCT FORM WITH IMAGE UPLOAD -->
+                    <div id="productForm" class="product-form" style="display: none;">
+                        <h4>Product Form</h4>
+                        <form onsubmit="saveProduct(event)">
+                            <input type="text" placeholder="Product Name" id="productName" required>
+                            <select id="productCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="Oxidize Earrings">Oxidize Earrings</option>
+                                <option value="Oxidize Rings">Oxidize Rings</option>
+                                <option value="Oxidize Choker">Oxidize Choker</option>
+                                <option value="Oxidize Choker Neckpiece Set">Oxidize Choker Neckpiece Set</option>
+                                <option value="Oxidize Noth Nose Pin">Oxidize Noth Nose Pin</option>
+                                <option value="Stone Rings">Stone Rings</option>
+                                <option value="Anklet">Anklet</option>
+                                <option value="Toe Rings">Toe Rings</option>
+                                <option value="Golden Polish Earrings">Golden Polish Earrings</option>
+                                <option value="Golden Polish Neckpiece Set">Golden Polish Neckpiece Set</option>
+                                <option value="Golden Polish Single Neckpiece">Golden Polish Single Neckpiece</option>
+                                <option value="Golden Polish Simple Bracelet">Golden Polish Simple Bracelet</option>
+                                <option value="Golden Polish Cuff Bracelet">Golden Polish Cuff Bracelet</option>
+                                <option value="Multani Earrings">Multani Earrings</option>
+                            </select>
+                            <input type="number" placeholder="Price" id="productPrice" required>
+                            <textarea placeholder="Description" id="productDescription"></textarea>
+                            
+                            <!-- HOW TO UPLOAD PRODUCT IMAGE:
+                                 1. Click the 'Choose File' button below
+                                 2. Select an image from your computer (JPG, PNG recommended)
+                                 3. Image will be preview in the product preview area
+                                 RECOMMENDED IMAGE SIZE: 300x300px or larger
+                                 
+                                 IMAGE STORAGE OPTIONS FOR BACKEND:
+                                 - Option 1: Save to /images/products/ folder on server
+                                 - Option 2: Upload to cloud storage (Cloudinary, Firebase, AWS S3)
+                                 - Option 3: Convert to Base64 and save in database
+                                 
+                                 Currently stores image data locally using FileReader API (see app.js for details)
+                            -->
+                            <label for="productImage" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Upload Product Image:</label>
+                            <input type="file" id="productImage" accept="image/*" onchange="previewProductImage(event)">
+                            
+                            <!-- Image preview area -->
+                            <div id="productImagePreview" style="margin: 1rem 0; display: none;">
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">Image Preview:</p>
+                                <img id="previewImg" style="max-width: 200px; max-height: 200px; border-radius: 4px;">
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn-primary">Save Product</button>
+                                <button type="button" class="btn btn-secondary" onclick="closeProductForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="adminProductsList" class="admin-products-list">
+                        <!-- Admin products list will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Categories Tab -->
+                <div id="categoriesTab" class="admin-tab-content">
+                    <h3>Manage Categories</h3>
+                    <button class="btn btn-primary" onclick="openCategoryForm()">+ Add New Category</button>
+                    
+                    <div id="categoryForm" class="category-form" style="display: none;">
+                        <h4>Category Form</h4>
+                        <form onsubmit="saveCategory(event)">
+                            <input type="text" placeholder="Category Name" id="categoryName" required>
+                            <textarea placeholder="Description" id="categoryDescription"></textarea>
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn-primary">Save Category</button>
+                                <button type="button" class="btn btn-secondary" onclick="closeCategoryForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="categoriesList" class="categories-list">
+                        <!-- Categories list will be loaded here -->
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" onclick="logoutAdmin()">Logout</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-btn" onclick="closeCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total:</strong>
+                <strong id="cartTotal">₹0</strong>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="proceedToCheckout()">Checkout</button>
+        </div>
+    </aside>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content checkout-modal">
+            <button class="close-btn" onclick="closeCheckout()">&times;</button>
+            <h2>Checkout</h2>
+            
+            <form onsubmit="completeCheckout(event)" class="checkout-form">
+                <h3>Shipping Details</h3>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <input type="text" placeholder="Address" required>
+                <input type="text" placeholder="City" required>
+                <input type="text" placeholder="Postal Code" required>
+                
+                <h3>Order Summary</h3>
+                <div class="order-summary" id="orderSummary">
+                    <!-- Order items will be loaded here -->
+                </div>
+                
+                <div class="checkout-total">
+                    <strong>Total Amount:</strong>
+                    <strong id="checkoutTotal">₹0</strong>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content confirmation-modal">
+            <div class="confirmation-icon">✓</div>
+            <h2>Order Placed Successfully!</h2>
+            <p id="confirmationMessage"></p>
+            <button class="btn btn-primary" onclick="backToHome()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
